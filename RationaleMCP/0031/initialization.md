@@ -191,7 +191,7 @@ Since Full Modelica cannot distinguish between the two different uses of `<exact
 ```
   Real 'v';
 initial equation
-  'v' := <exact>; /* Equation cannot be overridden, but can be part of system of equations. */
+  'v' = <exact>; /* Equation cannot be overridden, but can be part of system of equations. */
   start('v') := <exact>; /* Overridable guess value. */
 ```
 
