@@ -1388,7 +1388,7 @@ The \lstinline!extent! attribute specifies the bounding box of the ellipse.
 
 Partial ellipses can be drawn using the \lstinline!startAngle! and \lstinline!endAngle! attributes.
 These specify the endpoints of the arc prior to the stretch and rotate operations.
-The arc is drawn counter-clockwise from \lstinline!startAngle! to \lstinline!endAngle!, where \lstinline!startAngle! and \lstinline!endAngle! are defined counter-clockwise from 3 o'clock (the positive x-axis).
+The arc is drawn counter-clockwise from \lstinline!startAngle! to \lstinline!endAngle!, where \lstinline!startAngle! and \lstinline!endAngle! are defined counter-clockwise from 3 o'clock (the positive $x$ axis).
 
 The \lstinline!closure! attribute specifies whether the endpoints specified by \lstinline!startAngle! and \lstinline!endAngle! are to be joined by lines to the center of the extent (\lstinline!closure = EllipseClosure.Radial!), joined by a single straight line between the end points (\lstinline!closure = EllipseClosure.Chord!), or left unconnected (\lstinline!closure = EllipseClosure.None!).
 In the latter case, the ellipse is treated as an open curve instead of a closed shape, and the \lstinline!fillPattern! and \lstinline!fillColor! are not applied (if present, they are ignored).
