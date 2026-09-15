@@ -278,10 +278,13 @@ record Plot
   Curve[:] curves "Plot curves";
   /*literal*/ constant Axis x "X axis properties";
   /*literal*/ constant Axis y "Y axis properties";
+  /*literal*/ constant Axis yRight "Right y axis properties";
 end Plot;
 \end{lstlisting}
 
-A \lstinline!Plot! can contain several \lstinline!curves!, see \cref{plot-curves}, that all share a common \lstinline!x! and \lstinline!y! axis with properties described in \cref{axis-properties}.
+A \lstinline!Plot! can contain several \lstinline!curves!, see \cref{plot-curves}, that all share a common \lstinline!x! axis with properties described in \cref{axis-properties}.
+There can be either one or two $y$ axes, with the proerties of the left and right axes defined by \lstinline!y! and \lstinline!yRight!, respectively.
+A curve's associated $y$ axis is defined at the curve, see \cref{plot-curves}.
 
 Both \lstinline!Figure! and \lstinline!Plot! can have an optional title.
 When the \lstinline!Figure! \lstinline!title! is the empty string (the default), the tool must produce a non-empty title based on the figure content.
@@ -402,6 +405,7 @@ record Curve
   expression x = time "X coordinate values";
   expression y "Y coordinate values";
   /*literal*/ constant String legend "Legend";
+  /*literal*/ constant String yAxis "Associated y axis";
   /*literal*/ constant Integer zOrder = 0 "Drawing order control";
 end Curve;
 \end{lstlisting}
@@ -422,6 +426,10 @@ When \lstinline!legend! is not provided, the tool produces a default based on \l
 Providing the empty string as \lstinline!legend! means that the curve shall be omitted from the plot legend.
 Variable replacements, as described in \cref{variable-replacements}, can be used in \lstinline!legend!.
 The order of presentation within the plot legend corresponds to order of appearance in the \lstinline!curves! of a \lstinline!Plot!.
+
+A curve's associated $y$ axis is defined by \lstinline!yAxis!.
+Valid values are the strings \lstinline!"left"! and \lstinline!"right"!.
+When \lstinline!yAxis! is not provided, the tool makes an automatic choice.
 
 The \lstinline!zOrder! gives control over drawing order, with higher values corresponding to closer to front.
 Ties are resolved using order of appearance in the \lstinline!curves! of a \lstinline!Plot!, with later appearance corresponding to closer to front.
