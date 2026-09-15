@@ -406,7 +406,7 @@ record Curve
   expression x = time "X coordinate values";
   expression y "Y coordinate values";
   /*literal*/ constant String legend "Legend";
-  /*literal*/ constant String yAxis "Associated y axis";
+  /*literal*/ constant YAxisSelection yAxis "Associated y axis";
   /*literal*/ constant Integer zOrder = 0 "Drawing order control";
 end Curve;
 \end{lstlisting}
@@ -428,8 +428,11 @@ Providing the empty string as \lstinline!legend! means that the curve shall be o
 Variable replacements, as described in \cref{variable-replacements}, can be used in \lstinline!legend!.
 The order of presentation within the plot legend corresponds to order of appearance in the \lstinline!curves! of a \lstinline!Plot!.
 
-A curve's associated $y$ axis is defined by \lstinline!yAxis!.
-Valid values are the strings \lstinline!"left"! and \lstinline!"right"!.
+A curve is plotted against the $y$ axis is defined by \lstinline!yAxis!, with two possible settings:
+\begin{lstlisting}[language=modelica]
+type YAxisSelection = enumeration(Left, Right);
+\end{lstlisting}%
+\annotationindex{YAxisSelection}
 When \lstinline!yAxis! is not provided, the tool makes an automatic choice.
 
 The \lstinline!zOrder! gives control over drawing order, with higher values corresponding to closer to front.
